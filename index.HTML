@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Digital Vision Agency</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+background:#0f172a;
+color:white;
+overflow-x:hidden;
+}
+
+header{
+position:fixed;
+top:0;
+width:100%;
+z-index:1000;
+backdrop-filter:blur(15px);
+background:rgba(15,23,42,.7);
+border-bottom:1px solid rgba(255,255,255,.1);
+}
+
+nav{
+max-width:1400px;
+margin:auto;
+padding:20px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.logo{
+font-size:30px;
+font-weight:800;
+background:linear-gradient(90deg,#00e5ff,#8b5cf6);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.menu{
+display:flex;
+gap:30px;
+}
+
+.menu a{
+color:white;
+text-decoration:none;
+font-weight:500;
+}
+
+.btn{
+padding:14px 28px;
+border:none;
+border-radius:15px;
+cursor:pointer;
+font-weight:700;
+background:linear-gradient(90deg,#00e5ff,#8b5cf6);
+color:white;
+}
+
+.hero{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:40px;
+
+background:
+linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
+url('https://images.unsplash.com/photo-1460925895917-afdab827c52f');
+
+background-size:cover;
+background-position:center;
+}
+
+.hero h1{
+font-size:72px;
+margin-bottom:20px;
+}
+
+.hero p{
+font-size:22px;
+max-width:800px;
+margin:auto;
+margin-bottom:30px;
+}
+
+section{
+padding:120px 8%;
+}
+
+.section-title{
+text-align:center;
+font-size:50px;
+margin-bottom:60px;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:30px;
+}
+
+.card{
+background:rgba(255,255,255,.05);
+backdrop-filter:blur(10px);
+padding:35px;
+border-radius:25px;
+transition:.4s;
+border:1px solid rgba(255,255,255,.1);
+cursor:pointer;
+}
+
+.card:hover{
+transform:translateY(-10px);
+}
+
+.card h3{
+margin-bottom:15px;
+font-size:24px;
+}
+
+.stats{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+.stat{
+background:rgba(255,255,255,.05);
+padding:40px;
+text-align:center;
+border-radius:20px;
+}
+
+.number{
+font-size:60px;
+font-weight:800;
+color:#00e5ff;
+}
+
+.portfolio{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+gap:30px;
+}
+
+.project{
+height:250px;
+border-radius:20px;
+overflow:hidden;
+position:relative;
+cursor:pointer;
+}
+
+.project img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.project span{
+position:absolute;
+bottom:20px;
+left:20px;
+font-size:24px;
+font-weight:700;
+}
+
+.testimonials{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+gap:25px;
+}
+
+.review{
+background:rgba(255,255,255,.05);
+padding:30px;
+border-radius:20px;
+}
+
+.contact{
+text-align:center;
+}
+
+footer{
+background:#020617;
+padding:50px;
+text-align:center;
+}
+
+.modal{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+display:none;
+justify-content:center;
+align-items:center;
+background:rgba(0,0,0,.8);
+z-index:9999;
+}
+
+.modal-content{
+background:#111827;
+padding:40px;
+border-radius:25px;
+width:450px;
+max-width:90%;
+}
+
+.modal-content input{
+width:100%;
+padding:15px;
+margin:10px 0;
+border:none;
+border-radius:12px;
+}
+
+.close{
+float:right;
+font-size:30px;
+cursor:pointer;
+}
+
+.top-btn{
+position:fixed;
+right:20px;
+bottom:20px;
+width:60px;
+height:60px;
+border:none;
+border-radius:50%;
+background:#8b5cf6;
+color:white;
+font-size:22px;
+cursor:pointer;
+}
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:42px;
+}
+
+.menu{
+display:none;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<nav>
+
+<div class="logo">DIGITAL VISION</div>
+
+<div class="menu">
+<a href="#about">О нас</a>
+<a href="#services">Услуги</a>
+<a href="#cases">Кейсы</a>
+<a href="#reviews">Отзывы</a>
+<a href="#contact">Контакты</a>
+</div>
+
+<button class="btn" onclick="openModal()">
+Регистрация
+</button>
+
+</nav>
+
+</header>
+
+<section class="hero">
+
+<div>
+
+<h1>
+SMM И КОНТЕНТ-МАРКЕТИНГ НОВОГО ПОКОЛЕНИЯ
+</h1>
+
+<p>
+Мы объединяем бренды, маркетологов и SMM-специалистов
+для создания эффективных рекламных стратегий.
+</p>
+
+<button class="btn" onclick="openModal()">
+Начать сотрудничество
+</button>
+
+</div>
+
+</section>
+
+<section id="about">
+
+<h2 class="section-title">
+О компании
+</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>Экспертиза</h3>
+<p>Работаем с брендами любого масштаба.</p>
+</div>
+
+<div class="card">
+<h3>Контент</h3>
+<p>Создаем продающий контент для бизнеса.</p>
+</div>
+
+<div class="card">
+<h3>Продвижение</h3>
+<p>Настраиваем рекламные кампании.</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="services">
+
+<h2 class="section-title">
+Наши услуги
+</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>SMM Продвижение</h3>
+<p>Instagram, TikTok, Telegram.</p>
+</div>
+
+<div class="card">
+<h3>Контент Маркетинг</h3>
+<p>Контент-планы и стратегии.</p>
+</div>
+
+<div class="card">
+<h3>Таргетированная реклама</h3>
+<p>Meta Ads и другие платформы.</p>
+</div>
+
+<div class="card">
+<h3>Брендинг</h3>
+<p>Разработка фирменного стиля.</p>
+</div>
+
+<div class="card">
+<h3>SEO</h3>
+<p>Продвижение в поисковых системах.</p>
+</div>
+
+<div class="card">
+<h3>Аналитика</h3>
+<p>Подробные отчеты и метрики.</p>
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<h2 class="section-title">
+Статистика
+</h2>
+
+<div class="stats">
+
+<div class="stat">
+<div class="number">500+</div>
+<p>Проектов</p>
+</div>
+
+<div class="stat">
+<div class="number">95%</div>
+<p>Довольных клиентов</p>
+</div>
+
+<div class="stat">
+<div class="number">50M+</div>
+<p>Охватов</p>
+</div>
+
+<div class="stat">
+<div class="number">120+</div>
+<p>Брендов</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="cases">
+
+<h2 class="section-title">
+Наши кейсы
+</h2>
+
+<div class="portfolio">
+
+<div class="project">
+<img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f">
+<span>Fashion Brand</span>
+</div>
+
+<div class="project">
+<img src="https://images.unsplash.com/photo-1556740749-887f6717d7e4">
+<span>E-Commerce</span>
+</div>
+
+<div class="project">
+<img src="https://images.unsplash.com/photo-1552664730-d307ca884978">
+<span>Personal Brand</span>
+</div>
+
+</div>
+
+</section>
+
+<section id="reviews">
+
+<h2 class="section-title">
+Отзывы клиентов
+</h2>
+
+<div class="testimonials">
+
+<div class="review">
+★★★★★
+<br><br>
+Очень сильная команда маркетологов.
+</div>
+
+<div class="review">
+★★★★★
+<br><br>
+Продажи выросли более чем в два раза.
+</div>
+
+<div class="review">
+★★★★★
+<br><br>
+Отличный контент и продвижение.
+</div>
+
+</div>
+
+</section>
+
+<section id="contact" class="contact">
+
+<h2 class="section-title">
+Контакты
+</h2>
+
+<p>Email: info@digitalvision.com</p>
+<br>
+<p>Телефон: +998 90 123 45 67</p>
+<br>
+
+<button class="btn" onclick="openModal()">
+Оставить заявку
+</button>
+
+</section>
+
+<footer>
+
+<h3>DIGITAL VISION</h3>
+<br>
+<p>© 2026 Все права защищены.</p>
+
+</footer>
+
+<div class="modal" id="modal">
+
+<div class="modal-content">
+
+<span class="close" onclick="closeModal()">×</span>
+
+<h2>Регистрация</h2>
+
+<br>
+
+<input placeholder="Ваше имя">
+<input placeholder="Email">
+<input placeholder="Пароль">
+
+<br><br>
+
+<button class="btn" style="width:100%">
+Создать аккаунт
+</button>
+
+</div>
+
+</div>
+
+<button class="top-btn"
+onclick="window.scrollTo({top:0,behavior:'smooth'})">
+↑
+</button>
+
+<script>
+
+const modal=document.getElementById("modal");
+
+function openModal(){
+modal.style.display="flex";
+}
+
+function closeModal(){
+modal.style.display="none";
+}
+
+window.onclick=function(e){
+if(e.target==modal){
+closeModal();
+}
+}
+
+</script>
+
+</body>
+</html>
